@@ -26,10 +26,13 @@
             color: #fff;
             padding: 0.5rem 0;
             text-align: center;
-            position: fixed;
+            position: relative;
             width: 100%;
-            top: 0;
             z-index: 1000;
+        }
+        nav.sticky {
+            position: fixed;
+            top: 0;
         }
         nav a {
             color: #fff;
@@ -77,7 +80,7 @@
         <p>Chartered Professional Engineer - Mechanical</p>
         <p>Perth, Australia</p>
     </header>
-    <nav>
+    <nav id="navbar">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
@@ -133,5 +136,17 @@
     <footer>
         <p>&copy; 2025 Muhammad Ayub. All Rights Reserved.</p>
     </footer>
+    <script>
+        const navbar = document.getElementById('navbar');
+        const stickyOffset = navbar.offsetTop;
+
+        window.onscroll = function() {
+            if (window.pageYOffset >= stickyOffset) {
+                navbar.classList.add('sticky');
+            } else {
+                navbar.classList.remove('sticky');
+            }
+        };
+    </script>
 </body>
 </html>
